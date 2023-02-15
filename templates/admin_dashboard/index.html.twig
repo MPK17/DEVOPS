@@ -5,7 +5,7 @@
 
 <main>
     <div class="container-fluid px-4">
-        <h1 class="mt-4">Dashboard</h1>
+        <a href="{{ path("stat") }}"><h1 class="mt-4">Dashboard</h1></a>
         <ol class="breadcrumb mb-4">
             <li class="breadcrumb-item active">Dashboard</li>
         </ol>
@@ -209,12 +209,13 @@ var ctx = document.getElementById("myBarChart");
 var myLineChart = new Chart(ctx, {
   type: 'bar',
   data: {
-    labels: ["janvier", "feveier", "Mars", "Avril", "Mai", "Juin", "jullet", "Aout", "Septembre" ,"Octobre" , "Decembre"],
+    
+    labels: ["janvier", "feveier", "Mars", "Avril"],
     datasets: [{
       label: "Revenue",
       backgroundColor: "rgba(2,117,216,1)",
       borderColor: "rgba(2,117,216,1)",
-      data: [6, 4, 5, 8, 3, 1,7,5,3,2,1],
+      data: [6, 4, 5, 8],
     }],
   },
   options: {

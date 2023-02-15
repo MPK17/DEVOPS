@@ -3,7 +3,11 @@
     {% form_theme formClient 'bootstrap_4_layout.html.twig' %}
 
     {% block body %}
-
+      {% for message in app.flashes('info') %}
+        <div class= "alert alert-success">
+          {{message}}
+          </div>
+          {% endfor %}
         <h1>ajout d'un client </h1>
         {{form_start(formClient)}}
        

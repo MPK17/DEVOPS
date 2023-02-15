@@ -19,45 +19,52 @@
       
     </head>
     <body>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+        <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom ">
             <div class="container-fluid">
-              <a class="navbar-brand" href="/">APPOLLON GYM</a>
+              <a class="navbar-brand disabled" href="{{path('app_home_page')}}" >Apollon Gym</a>
               <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
               </button>
               <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                   <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/home">Home</a>
+                    <a class="nav-link active" aria-current="page" href="{{path('app_shop_home')}}">Shop</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="#">Link</a>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Dropdown
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="#">Action</a></li>
-                      <li><a class="dropdown-item" href="#">Another action</a></li>
-                      <li><hr class="dropdown-divider"></li>
-                      <li><a class="dropdown-item" href="#">Something else here</a></li>
-                    </ul>
-                  </li>
-                  <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                      Client
-                    </a>
-                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-                      <li><a class="dropdown-item" href="{{ path('client_create') }}">Client</a></li>
-                      <li><a class="dropdown-item" href="{{ path('recla_create') }}">reclammation</a></li>
-                    
-                    </ul>
+                    <a class="nav-link" href="{{path('app_programme_index1')}}">Programmes</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+                    <a class="nav-link" href="{{path('listcBlog')}}" >
+                      Blog
+                    </a>
                   </li>
+                  
+
+                {% if app.user %}
+                    <li class="nav-item">
+                      <a class="nav-link"  href="{{path('recla_create')}}">Reclamation</a>
+                    </li>
+                    <li class="nav-item">
+                      
+                      <a class="nav-link"  href="{{path('client_create')}}">Recommander un client</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="/admin">Admin</a>
+                      </li>
+              {% endif %}
+
+
+              {% if app.user %}
+                <!-- {% if is_granted('ROLE_ADMIN') %} -->
+                      <li class="nav-item">
+                        <a class="nav-link"  href="/admin">Admin</a>
+                      </li>
+                <!--  {% endif %} -->
+                {% endif %}
                 </ul>
+
+
+
                
               </div>
             </div>
@@ -191,9 +198,9 @@
     <!-- Copyright -->
   </footer>
   <!-- Footer -->
-  <script>
-    
-  </script>
+  
+  <script>!function(e,t,a){var c=e.head||e.getElementsByTagName("head")[0],n=e.createElement("script");n.async=!0,n.defer=!0, n.type="text/javascript",n.src=t+"/static/js/chat_widget.js?config="+JSON.stringify(a),c.appendChild(n)}(document,"https://app.engati.com",{bot_key:"ed9fcc36e1864e8e",welcome_msg:true,branding_key:"default",server:"https://app.engati.com",e:"p" });</script>
+ 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
     </body>
 </html>

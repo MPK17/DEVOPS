@@ -2,7 +2,11 @@
 {% block title %}Hello AdminDashboardController!{% endblock %}
 
 {% block body %}
-
+  {% for message in app.flashes('info') %}
+    <div class= "alert alert-success">
+      {{message}}
+      </div>
+      {% endfor %}
 <main>
     <div class="container-fluid px-4">
         <h1 class="mt-4">Dashboard</h1>
@@ -57,7 +61,7 @@
                             <td>{{reclas.nom}}</td>
                             <td>{{reclas.theme}}</td>
                             <td>{{reclas.description}}</td>
-                            <td>{{ reclas.date ? reclas.date|date('Y-m-d') : '' }}</td>
+                            <td>{{ reclas.date }}</td>
                             <td><a  href="{{ path('dd',{'id': reclas.id})}}"><button type="button" class="btn btn-danger"><i class="fa-solid fa-trash"></i></button></a></td>
                             <td><a href="{{ path('uu',{'id': reclas.id})}}"><button type="button" class="btn btn-warning"><i class="fa-solid fa-pen"></i></button></a></td>
                         </tr>
